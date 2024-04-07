@@ -6,30 +6,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @section('title')
-        Item title
+        Getting started
         @endsection
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <style>
-            .item-info {
-                margin: 40px;
-                padding:20px;
-                border:1px solid black;
-                border-radius: 16px;
-                background:#F1DBFF;
+            ul {
+                list-style: none;
+            }
+            li {
+                margin:10px;
             }
         </style>
     </head>
     <body>
-        
         @section('content')
-        <div class="item-info">
-        <h1>{{$item->title}}</h1>
-        <p>{{$item->desc}}</p>
-        <p>Price: {{$item->price}}</p>
-        </div>
+        <h2>Choose and option below: </h2>
+        <ul>
+            <li><a href="{{route('items')}}">Show all items</a></li>
+            @for($i=1; $i<=5; $i++)
+        <li><a href="{{ route('item', ['id' => $i]) }}">Show item #{{ $i }}</a></li>
+
+        @endfor
+        </ul>
         @endsection
+        
         
     </body>
 </html>

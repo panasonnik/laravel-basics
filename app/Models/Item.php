@@ -6,11 +6,13 @@ class Item {
     public int $id; 
     public string $title;
     public String $desc;
+    public int $price;
 
     public function __construct(int $id) {
         $this->id = $id;
         $this->title="Item $id";
         $this->desc = "Description of item $id";
+        $this->price = rand(1,100);
     }
 
     public function getId(): int {
